@@ -21,7 +21,15 @@ class DatabaseSeeder extends Seeder {
         'name' => 'kurotokiya',
         'email' => 'me@tokiya.me',
         'password' => Hash::make('123456'),
-        'charge' => '0'
+        'charge' => '10000'
+      ]
+    );
+    User::create(
+      [
+        'name' => 'newcxs',
+        'email' => 'newcxs@qq.com',
+        'password' => Hash::make('123456'),
+        'charge' => '10000'
       ]
     );
 	}
