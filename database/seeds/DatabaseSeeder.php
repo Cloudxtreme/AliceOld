@@ -21,7 +21,10 @@ class DatabaseSeeder extends Seeder {
         'name' => 'kurotokiya',
         'email' => 'me@tokiya.me',
         'password' => Hash::make('123456'),
-        'charge' => '10000'
+        'charge' => '10000',
+        'phone' => '13012345678',
+        'group' => 'admin',
+        'status' => 'ok'
       ]
     );
     User::create(
@@ -29,7 +32,10 @@ class DatabaseSeeder extends Seeder {
         'name' => 'newcxs',
         'email' => 'newcxs@qq.com',
         'password' => Hash::make('123456'),
-        'charge' => '10000'
+        'charge' => '10000',
+        'phone' => '13112345678',
+        'group' => 'admin',
+        'status' => 'ok'
       ]
     );
 	}

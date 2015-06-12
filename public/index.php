@@ -1,7 +1,7 @@
 <?php
 
 define('ALICE_VERSION', '0.1');
-define('ALICE_RELEASE', '20150606');
+define('ALICE_RELEASE', '20150612');
 
 require __DIR__.'/../bootstrap/autoload.php';
 

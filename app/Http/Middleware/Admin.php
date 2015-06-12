@@ -18,7 +18,7 @@ class Admin {
 			}else{
 				return redirect()->guest('auth/login');
 			}
-		}elseif(!in_array($this->auth->user()->id, explode(',', env('ADMIN_UID', '1')))){
+		}elseif($this->auth->user()->group != 'admin'){
       if ($request->ajax()){
 				return response('Unauthorized.', 401);
 			}else{

@@ -1,19 +1,17 @@
-@extends('app')
+@extends('admin')
 
 @section('content')
   <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        我的工单 <small>下面是您提交的工单</small>
-      </h1>
+    <h1>工单列表</h1>
       <ol class="breadcrumb">
-         <li><a href="/"><i class="fa fa-dashboard"></i> 控制面板</a></li>
+         <li><a href="/"><i class="fa fa-dashboard"></i> 管理面板</a></li>
          <li>Ticket</li>
-         <li class="active">我的工单</li>
+         <li class="active">列表</li>
        </ol>
      </section>
 
-     <!-- Main content -->
+   <!-- Main content -->
      <section class="content">
        @if (session('success'))
        <div class="alert alert-success" role="alert">
@@ -28,6 +26,7 @@
          {{ session('error') }}
        </div>
        @endif
+       
        <div class="box box-primary">
          <div class="box-body">
            <table class="table table-hover">
@@ -47,7 +46,7 @@
                  <tr>
                    <td>{{ $data->id }}</td>
                    <td>
-                     <a href="{{ url('ticket/detail/' . $data->id) }}">{{ $data->title }}</a>
+                     <a href="{{ url('admin/ticket-detail/' . $data->id) }}">{{ $data->title }}</a>
                    </td>
                    <td>{{ \App\User::find($data->last_post)->name }}</td>
                    <td>

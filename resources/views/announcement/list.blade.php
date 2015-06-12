@@ -15,6 +15,34 @@
 
      <!-- Main content -->
      <section class="content">
-       haha
+       <div class="box box-primary">
+         <div class="box-body">
+           <table class="table table-hover">
+             <thead>
+               <tr>
+                 <th>标题</th>
+                 <th>时间</th>
+               </tr>
+             </thead>
+             <tbody>
+               @if (count($datas) > 0)
+                 @foreach ($datas as $data)
+                 <tr>
+                   <td>
+                     <a href="{{ url('announcement/' . $data->id) }}">{{ $data->title }}</a>
+                   </td>
+                   <td>{{ $data->updated_at->toDateTimeString() }}</td>
+                 </tr>
+                 @endforeach
+               @else
+               <tr>
+                 <td colspan="2">没有查询到数据</td>
+               </tr>
+               @endif
+             </tbody>
+           </table>
+           <div class="text-center">{!! $datas->render() !!}</div>
+         </div><!-- /.box-body -->
+       </div><!-- /.box -->
      </section><!-- /.content -->
 @stop

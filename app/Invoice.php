@@ -7,6 +7,5 @@ class Invoice extends Model {
 	protected $table = 'invoice';
   protected $primaryKey = 'id';
 	protected $fillable = ['uid', 'type', 'amount', 'remark'];
-  public $timestamps = false;
 
 }

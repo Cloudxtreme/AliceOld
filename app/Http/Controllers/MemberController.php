@@ -31,13 +31,13 @@ class MemberController extends Controller {
   }
   
   public function postEmail(){
-    Session::flash('error', '功能开发中...');
+    Session::flash('error', '此功能暂未开放...');
     return redirect()->to('member/profile');
   }
   
   public function getCharge(){
     $uid = Auth::user()->id;
-    $logs = \App\Invoice::where('uid', $uid)->paginate(20);
+    $logs = \App\Invoice::where('uid', $uid)->orderBy('updated_at', 'desc')->paginate(20);
     
     return view('member/charge')->withLogs($logs);
   }

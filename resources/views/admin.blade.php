@@ -53,16 +53,10 @@
                       <small>注册于 {{ Auth::user()->created_at->toDateString() }}</small>
                     </p>
                   </li>
-                  <!-- Menu Body -->
-                  <li class="user-body">
-                    <div class="col-xs-12 text-center">
-                      <a href="/member/charge">Charge <span class="label label-success">{{ Auth::user()->charge }}</span></a>
-                    </div>
-                  </li>
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="/member/profile" class="btn btn-default btn-flat">个人资料</a>
+                      <a href="/" class="btn btn-default btn-flat">返回前台</a>
                     </div>
                     <div class="pull-right">
                       <a href="/auth/logout" class="btn btn-default btn-flat">退出</a>
@@ -88,27 +82,19 @@
             <div class="pull-left info">
               <p>{{ Auth::user()->name }}</p>
               <!-- Status -->
-              <a href="javascript:void(0);"><i class="fa fa-circle text-success"></i> 正常</a>
+              <a href="javascript:void(0);"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
           </div>
 
           <!-- Sidebar Menu -->
           <ul class="sidebar-menu">
             <li class="header">MAIN MENU</li>
-            <li @if (Request::is('/')) class="active" @endif><a href="/"><i class="fa fa-dashboard"></i> <span>控制面板首页</span></a></li>
-            <li @if (Request::is('announcement*')) class="active" @endif><a href="/announcement"><i class="fa fa-bullhorn"></i> <span>系统公告</span></a></li>
-            
-            <li class="header">HOSTING</li>
-            <li @if (Request::is('hosting/deploy')) class="active" @endif><a href="/hosting/deploy"><i class="fa fa-plus"></i> <span>开通新主机</span></a></li>
-            <li @if (Request::is('hosting/list')) class="active" @endif><a href="/hosting/list"><i class="fa fa-server"></i> <span>主机列表</span></a></li>
-            
-            <li class="header">MEMBER</li>
-            <li @if (Request::is('member/profile')) class="active" @endif><a href="/member/profile"><i class="fa fa-pencil"></i> <span>个人资料设置</span></a></li>
-            <li @if (Request::is('member/charge')) class="active" @endif><a href="/member/charge"><i class="fa fa-money"></i> <span>财务记录</span></a></li>
-            
+            <li @if (Request::is('admin')) class="active" @endif><a href="/admin"><i class="fa fa-dashboard"></i> <span>管理面板首页</span></a></li>
+            <li @if (Request::is('admin/announcement*')) class="active" @endif><a href="/admin/announcement"><i class="fa fa-bullhorn"></i> <span>系统公告</span></a></li>
+
             <li class="header">TICKET</li>
-            <li @if (Request::is('ticket/add')) class="active" @endif><a href="/ticket/add"><i class="fa fa-plus-circle"></i> <span>提交新工单</span></a></li>
-            <li @if (Request::is('ticket/list')) class="active" @endif><a href="/ticket/list"><i class="fa fa-archive"></i> <span>我的工单</span></a></li>
+            <li @if (Request::is('admin/ticket')) class="active" @endif><a href="/admin/ticket"><i class="fa fa-reply"></i> <span>待回复工单</span></a></li>
+            <li @if (Request::is('admin/ticket/all')) class="active" @endif><a href="/admin/ticket/all"><i class="fa fa-archive"></i> <span>全部工单</span></a></li>
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->

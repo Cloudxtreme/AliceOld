@@ -63,6 +63,9 @@
                   <li class="user-footer">
                     <div class="pull-left">
                       <a href="/member/profile" class="btn btn-default btn-flat">个人资料</a>
+                      @if (Auth::user()->group == 'admin')
+                      <a href="/admin" class="btn btn-default btn-flat">管理面板</a>
+                      @endif
                     </div>
                     <div class="pull-right">
                       <a href="/auth/logout" class="btn btn-default btn-flat">退出</a>
@@ -88,7 +91,15 @@
             <div class="pull-left info">
               <p>{{ Auth::user()->name }}</p>
               <!-- Status -->
-              <a href="javascript:void(0);"><i class="fa fa-circle text-success"></i> 正常</a>
+              <a href="javascript:void(0);">
+                @if (Auth::user()->status == 'ok')
+                <i class="fa fa-circle text-success"></i> 正常
+                @elseif (Auth::user()->status == 'pause')
+                <i class="fa fa-circle text-danger"></i> 暂停
+                @else
+                <i class="fa fa-circle text-muted"></i> 未知
+                @endif
+              </a>
             </div>
           </div>
 
