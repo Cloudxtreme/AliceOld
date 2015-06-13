@@ -54,6 +54,8 @@
                      等待管理员回复
                      @elseif ($data->status == 'user')
                      等待用户回复
+                     @elseif ($data->status == 'closed')
+                     关闭
                      @else
                      未知
                      @endif

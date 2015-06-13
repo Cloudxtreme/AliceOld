@@ -4,7 +4,7 @@
   <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        {{ $data->title }} <small>查看工单</small>
+        {{ $data->title }} <a href="{{ url('ticket/close/' . $data->id) }}" title="关闭工单"><i class="fa fa-times"></i></a>
       </h1>
       <ol class="breadcrumb">
          <li><a href="/"><i class="fa fa-dashboard"></i> 控制面板</a></li>

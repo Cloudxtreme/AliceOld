@@ -92,9 +92,22 @@
             <li @if (Request::is('admin')) class="active" @endif><a href="/admin"><i class="fa fa-dashboard"></i> <span>管理面板首页</span></a></li>
             <li @if (Request::is('admin/announcement*')) class="active" @endif><a href="/admin/announcement"><i class="fa fa-bullhorn"></i> <span>系统公告</span></a></li>
 
+            <li class="header">SERVER</li>
+            <li @if (Request::is('admin/server*')) class="active" @endif><a href="/admin/server"><i class="fa fa-server"></i> <span>服务器列表</span></a></li>
+            <li @if (Request::is('admin/domain')) class="active" @endif><a href="/admin/domain"><i class="fa fa-globe"></i> <span>已绑定域名</span></a></li>
+            
+            <li class="header">HOSTING</li>
+            <li @if (Request::is('admin/hosting*')) class="active" @endif><a href="/admin/hosting"><i class="fa fa-tasks"></i> <span>主机列表</span></a></li>
+            
+            <li class="header">MEMBER</li>
+            <li @if (Request::is('admin/user*')) class="active" @endif><a href="/admin/user"><i class="fa fa-users"></i> <span>用户列表</span></a></li>
+            
             <li class="header">TICKET</li>
             <li @if (Request::is('admin/ticket')) class="active" @endif><a href="/admin/ticket"><i class="fa fa-reply"></i> <span>待回复工单</span></a></li>
             <li @if (Request::is('admin/ticket/all')) class="active" @endif><a href="/admin/ticket/all"><i class="fa fa-archive"></i> <span>全部工单</span></a></li>
+            
+            <li class="header">SETTING</li>
+            <li @if (Request::is('admin/setting-basic')) class="active" @endif><a href="/admin/setting-basic"><i class="fa fa-cog"></i> <span>基本设置</span></a></li>
           </ul><!-- /.sidebar-menu -->
         </section>
         <!-- /.sidebar -->

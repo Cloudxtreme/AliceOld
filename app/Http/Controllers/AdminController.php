@@ -113,5 +113,24 @@ class AdminController extends Controller {
     Session::flash('success', '工单回复完成');
     return redirect()->to('admin/ticket-detail/'.$id);
   }
+  
+  public function getSettingBasic(){
+    return view('admin/setting/basic');
+  }
+  
+  public function postSettingBasic(){
+    $sitename = Request::input('sitename');
+    $siteurl = Request::input('siteurl');
+    $charge_name = Request::input('charge_name');
+    $notice = Request::input('notice');
+    
+    \App\Setting::where('key', 'sitename')->update(['value' => $sitename]);
+    \App\Setting::where('key', 'siteurl')->update(['value' => $siteurl]);
+    \App\Setting::where('key', 'charge_name')->update(['value' => $charge_name]);
+    \App\Setting::where('key', 'notice')->update(['value' => $notice]);
+    
+    Session::flash('success', '基本设置更新成功');
+    return redirect()->to('admin/setting-basic');
+  }
 
 }

@@ -81,5 +81,18 @@ class TicketController extends Controller {
     Session::flash('success', '工单回复完成');
     return redirect()->to('ticket/detail/'.$id);
   }
+  
+  public function getClose($id){
+    $ticket = \App\Tickets::find($id);
+    if(@!$ticket->id){
+      Session::flash('error', '找不到此工单');
+      return redirect()->to('ticket/list');
+    }
+    $ticket->status = 'closed';
+    $ticket->save();
+    
+    Session::flash('success', '工单关闭成功');
+    return redirect()->to('ticket/list');
+  }
 
 }
